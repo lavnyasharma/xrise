@@ -4,7 +4,7 @@ import { getToken, removeToken } from '@/utils/token';
 export const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: { 'Content-Type': 'application/json' },
-  timeout: 10_000,
+  timeout: 60000,
 });
 
 api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
