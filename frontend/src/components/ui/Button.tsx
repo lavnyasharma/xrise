@@ -51,7 +51,7 @@ const styles: Record<Variant, React.CSSProperties> = {
 
 const hoverBg: Record<Variant, string> = {
   primary:   'var(--c-primary-h)',
-  secondary: '#f8fafc',
+  secondary: 'var(--c-surface-2)',
   danger:    'var(--c-danger-h)',
   ghost:     'var(--c-primary-light)',
 };

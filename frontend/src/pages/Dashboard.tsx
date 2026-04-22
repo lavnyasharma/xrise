@@ -215,7 +215,7 @@ export function Dashboard() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                background: '#fafafa',
+                background: 'var(--c-surface-2)',
                 flexWrap: 'wrap',
                 gap: 10,
               }}

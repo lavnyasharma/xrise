@@ -27,10 +27,10 @@ const STATUS_OPTIONS = [
 ];
 
 const EVENT_STYLE: Record<string, { icon: string; bg: string; border: string }> = {
-  created:      { icon: '🎟',  bg: '#f0f4ff', border: '#c7d7fe' },
-  reply:        { icon: '💬',  bg: '#f8fafc', border: 'var(--c-border)' },
-  status_change:{ icon: '🔄',  bg: '#fefce8', border: '#fde68a' },
-  reassigned:   { icon: '👤',  bg: '#f0fdf4', border: '#bbf7d0' },
+  created:      { icon: '🎟',  bg: 'var(--c-primary-light)', border: 'var(--c-primary)' },
+  reply:        { icon: '💬',  bg: 'var(--c-surface-2)', border: 'var(--c-border)' },
+  status_change:{ icon: '🔄',  bg: 'var(--c-warning-light)', border: 'var(--c-warning)' },
+  reassigned:   { icon: '👤',  bg: 'var(--c-success-light)', border: 'var(--c-success)' },
 };
 
 function fmt(iso: string) {
@@ -63,7 +63,7 @@ function TimelineItem({ event }: { event: TicketEvent }) {
         display: 'flex',
         gap: 14,
         padding: '18px 0',
-        borderBottom: '1px solid #f1f5f9',
+        borderBottom: '1px solid var(--c-border)',
       }}
     >
       {/* Icon / Avatar */}
@@ -113,7 +113,7 @@ function TimelineItem({ event }: { event: TicketEvent }) {
           style={{
             fontSize: 14,
             color: isReply ? 'var(--c-text)' : 'var(--c-text-muted)',
-            background: isReply ? '#f8fafc' : 'transparent',
+            background: isReply ? 'var(--c-surface-2)' : 'transparent',
             border: isReply ? '1px solid var(--c-border)' : 'none',
             borderRadius: isReply ? 'var(--radius-md)' : 0,
             padding: isReply ? '12px 16px' : 0,
@@ -270,7 +270,7 @@ export function TicketDetail() {
 
             <div
               style={{
-                background: '#f8fafc',
+                background: 'var(--c-surface-2)',
                 border: '1px solid var(--c-border)',
                 borderRadius: 'var(--radius-md)',
                 padding: '16px 18px',
@@ -481,7 +481,7 @@ export function TicketDetail() {
             <SidebarSection label="Ticket Info">
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <MetaRow label="ID">
-                  <code style={{ fontSize: 11, fontFamily: 'monospace', background: '#f1f5f9', padding: '2px 6px', borderRadius: 3, wordBreak: 'break-all' }}>
+                  <code style={{ fontSize: 11, fontFamily: 'monospace', background: 'var(--c-surface-2)', padding: '2px 6px', borderRadius: 3, wordBreak: 'break-all' }}>
                     {ticket.id}
                   </code>
                 </MetaRow>

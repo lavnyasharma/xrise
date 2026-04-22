@@ -21,18 +21,18 @@ export function Table<T>({ columns, data, rowKey, onRowClick }: TableProps<T>) {
     <div style={{ overflowX: 'auto', width: '100%' }}>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
         <thead>
-          <tr style={{ background: '#f8fafc', borderBottom: '1.5px solid var(--c-border)' }}>
+          <tr style={{ background: 'var(--c-thead-bg)', borderBottom: '1px solid var(--c-border)' }}>
             {columns.map((col) => (
               <th
                 key={col.key}
                 style={{
-                  padding: '11px 18px',
+                  padding: '12px 16px',
                   textAlign: col.align ?? 'left',
-                  fontWeight: 700,
+                  fontWeight: 600,
                   color: 'var(--c-text-muted)',
-                  fontSize: 11,
+                  fontSize: 12,
                   textTransform: 'uppercase',
-                  letterSpacing: '.06em',
+                  letterSpacing: '.05em',
                   width: col.width,
                   whiteSpace: 'nowrap',
                 }}
@@ -53,17 +53,17 @@ export function Table<T>({ columns, data, rowKey, onRowClick }: TableProps<T>) {
                 onMouseEnter={() => setHoveredRow(key)}
                 onMouseLeave={() => setHoveredRow(null)}
                 style={{
-                  borderBottom: '1px solid #f1f5f9',
+                  borderBottom: '1px solid var(--c-border)',
                   cursor: onRowClick ? 'pointer' : 'default',
-                  background: isHovered ? '#f8fafc' : 'transparent',
-                  transition: 'background 0.12s',
+                  background: isHovered ? 'var(--c-row-hover)' : 'transparent',
+                  transition: 'background var(--transition)',
                 }}
               >
                 {columns.map((col) => (
                   <td
                     key={col.key}
                     style={{
-                      padding: '14px 18px',
+                      padding: '13px 16px',
                       color: 'var(--c-text)',
                       textAlign: col.align ?? 'left',
                       verticalAlign: 'middle',
