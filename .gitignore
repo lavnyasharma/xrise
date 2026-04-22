@@ -1,0 +1,103 @@
+# ====================
+# Dependencies
+# ====================
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# ====================
+# Environment Variables
+# ====================
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# ====================
+# Build Outputs
+# ====================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+
+# ====================
+# TypeScript
+# ====================
+*.tsbuildinfo
+
+# ====================
+# Logs
+# ====================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ====================
+# Testing
+# ====================
+coverage/
+.nyc_output/
+*.lcov
+
+# ====================
+# OS & Editor Files
+# ====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+# VSCode
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ====================
+# Docker
+# ====================
+.dockerignore
+
+# ====================
+# Miscellaneous
+# ====================
+*.pem
+*.key
+*.cert
+*.crt
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+*.swp
+*.swo
+*~
+
+# ====================
+# Package Manager Locks
+# (keep one — remove the others based on your choice)
+# ====================
+# Uncomment below to ignore lock files if not committing them:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

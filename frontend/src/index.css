@@ -1,0 +1,183 @@
+/* ─── Design tokens ────────────────────────────────────────── */
+:root {
+  /* Apple Light Mode Palette */
+  --c-bg:          #F5F5F7;
+  --c-surface:     #FFFFFF;
+  --c-border:      #E5E5EA;
+  --c-border-focus:#007AFF; /* iOS/macOS Blue */
+
+  --c-text:        #1D1D1F;
+  --c-text-muted:  #86868B;
+  --c-text-subtle: #D2D2D7;
+
+  --c-primary:     #007AFF;
+  --c-primary-h:   #0051CD;
+  --c-primary-light:#E5F1FF;
+
+  --c-danger:      #FF3B30;
+  --c-danger-h:    #D92E25;
+  --c-danger-light:#FFEBEA;
+
+  --c-success:     #34C759;
+  --c-success-light:#EBF9EE;
+
+  --c-warning:     #FF9500;
+  --c-warning-light:#FFF4E5;
+
+  --c-glass-bg:    rgba(255, 255, 255, 0.72);
+
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-full:9999px;
+
+  /* Diffused, soft shadows */
+  --shadow-sm:  0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg:  0 12px 32px rgba(0, 0, 0, 0.12);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --transition: 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+html.dark {
+  /* Apple Dark Mode Palette */
+  --c-bg:          #000000;
+  --c-surface:     #1C1C1E;
+  --c-border:      #38383A;
+  --c-border-focus:#0A84FF;
+
+  --c-text:        #F5F5F7;
+  --c-text-muted:  #86868B;
+  --c-text-subtle: #48484A;
+
+  --c-primary:     #0A84FF;
+  --c-primary-h:   #409CFF;
+  --c-primary-light:rgba(10, 132, 255, 0.15);
+
+  --c-danger:      #FF453A;
+  --c-danger-h:    #FF6961;
+  --c-danger-light:rgba(255, 69, 58, 0.15);
+
+  --c-success:     #32D74B;
+  --c-success-light:rgba(50, 215, 75, 0.15);
+
+  --c-warning:     #FF9F0A;
+  --c-warning-light:rgba(255, 159, 10, 0.15);
+
+  --c-glass-bg:    rgba(28, 28, 30, 0.72);
+
+  /* Very subtle glow/shadow in dark mode, or pure border */
+  --shadow-sm:  0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-md:  0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg:  0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--c-bg);
+  color: var(--c-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+/* ─── Keyframes ─────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in  { animation: fadeIn  0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.slide-in { animation: slideDown 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+/* ─── Form elements ─────────────────────────────────────────── */
+input, textarea, select {
+  font-family: inherit;
+  font-size: 15px; /* Mac style slightly larger */
+  color: var(--c-text);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  width: 100%;
+  transition: all var(--transition);
+  outline: none;
+  appearance: none;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--c-text-muted);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--c-border-focus);
+  box-shadow: 0 0 0 4px var(--c-primary-light);
+}
+
+input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="true"] {
+  border-color: var(--c-danger);
+}
+
+input[aria-invalid="true"]:focus, textarea[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 4px var(--c-danger-light);
+}
+
+input:disabled, textarea:disabled, select:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  background: var(--c-bg);
+}
+
+/* Select arrow */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+html.dark select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2386868B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* ─── Card ──────────────────────────────────────────────────── */
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border); /* Will be almost invisible in light mode, thin ring in dark mode */
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--c-border);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-text-muted);
+}
+
+/* ─── Utility ───────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
