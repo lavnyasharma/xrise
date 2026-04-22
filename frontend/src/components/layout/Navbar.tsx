@@ -5,7 +5,7 @@ import { useTheme } from '@/context/ThemeContext';
 
 export function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
-  const { theme, setTheme, isDark } = useTheme();
+  const {  setTheme, isDark } = useTheme();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
