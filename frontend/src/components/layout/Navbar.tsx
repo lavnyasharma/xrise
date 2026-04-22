@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import { useTheme } from '@/context/ThemeContext';
@@ -7,7 +7,7 @@ export function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
   const { setTheme, isDark } = useTheme();
   const navigate = useNavigate();
-  const [, setMenuOpen] = useState(false);
+
 
   const handleLogout = () => {
     logout();
